@@ -113,9 +113,9 @@ if (isset($_POST["submit2"]))
     {
         // untuk penamaan file dan direktori pada database (option image 1)
         $file_tmp_1 = $_FILES['img_opt1']['tmp_name'];
-        $dst1 = "../option_images/" . $tm . $opt1;
-        $file_destination_1 = "option_images/" . $tm . $opt1;
-        move_uploaded_file($file_tmp_1, "$dir/$dst1");
+        $dst1 = "./option_images/" . $tm . $opt1;
+        $file_destination_1 = "option_images/" . $tm . $opt1; // untuk database 
+        move_uploaded_file($file_tmp_1, $dst1);
 
         mysqli_query($link, "update questions set question='$_POST[img_question]', option_1='$file_destination_1' where id_question=$id") or die(mysqli_error($link));
     }
@@ -126,8 +126,8 @@ if (isset($_POST["submit2"]))
         // untuk penamaan file dan direktori pada database (option image 2)
         $file_tmp_2 = $_FILES['img_opt2']['tmp_name'];
         $dst2 = "./option_images/" . $tm . $opt2;
-        $file_destination_2 = "option_images/" . $tm . $opt2;
-        move_uploaded_file($file_tmp_2, "$dir/$dst2");
+        $file_destination_2 = "option_images/" . $tm . $opt2; // untuk database
+        move_uploaded_file($file_tmp_2, $dst2);
 
         mysqli_query($link, "update questions set question='$_POST[img_question]', option_2='$file_destination_2' where id_question=$id") or die(mysqli_error($link));
     }
@@ -139,8 +139,8 @@ if (isset($_POST["submit2"]))
         $file_tmp_3 = $_FILES['img_opt3']['tmp_name'];
         $dst3 = "./option_images/" . $tm . $opt3;
         $file_destination_3 = "option_images/" . $tm . $opt3;
-        move_uploaded_file($file_tmp_3, "$dir/$dst3");
-
+        move_uploaded_file($file_tmp_3, $dst3);
+        
         mysqli_query($link, "update questions set question='$_POST[img_question]', option_3='$file_destination_3' where id_question=$id") or die(mysqli_error($link));
     }
 
@@ -151,7 +151,7 @@ if (isset($_POST["submit2"]))
         $file_tmp_4 = $_FILES['img_opt4']['tmp_name'];
         $dst4 = "./option_images/" . $tm . $opt4;
         $file_destination_4 = "option_images/" . $tm . $opt4;
-        move_uploaded_file($file_tmp_4, "$dir/$dst4");  
+        move_uploaded_file($file_tmp_4, $dst4);  
 
         mysqli_query($link, "update questions set question='$_POST[img_question]', option_4='$file_destination_4' where id_question=$id") or die(mysqli_error($link));
     }
@@ -163,7 +163,7 @@ if (isset($_POST["submit2"]))
         $file_tmp_5 = $_FILES['img_answer_opt']['tmp_name'];
         $dst4 = "./option_images/" . $tm . $answer;
         $file_destination_5 = "option_images/" . $tm . $answer;
-        move_uploaded_file($file_tmp_4, "$dir/$dst4");  
+        move_uploaded_file($file_tmp_5, $dst5);  
 
         mysqli_query($link, "update questions set question='$_POST[img_question]', answer='$file_destination_5' where id_question=$id") or die(mysqli_error($link));
     }
