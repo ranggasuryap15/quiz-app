@@ -200,7 +200,7 @@ while ($row = mysqli_fetch_array($res)) {
                 echo "</td>";
 
                 echo "<td>";
-                if (strpos($row["answer454"], 'option_images/') !== false)
+                if (strpos($row["answer"], 'option_images/') !== false)
                 {
                     ?>
                     <!-- Jika ini adalah gambar maka masuk kesini -->
