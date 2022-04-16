@@ -1,0 +1,79 @@
+<?php
+include_once "header.php";
+include_once "../connection.php";
+
+$id = $_GET["id"];
+$res = mysqli_query($link, "select * from exam_category where id_exam=$id");
+while ($row = mysqli_fetch_array($res)) {
+    $exam_category = $row["category"];
+    $exam_time = $row["exam_time_in_minute"];
+}
+?>
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Mengubah Kategori Ujian</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <form name="form1" action="" method="post">
+                        <div class="card-body"> 
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Mengubah Ujian</strong>
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <div class="form-group">
+                                            <label for="examname" class=" form-control-label">Kategori Ujian Baru</label>
+                                            <input type="text" name="examname" placeholder="Tambahkan Kategori Baru" class="form-control" value="<?php echo $exam_category; ?>" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="examtime" class=" form-control-label">Waktu Ujian</label>
+                                            <input type="text" name="examtime" placeholder="Waktu Ujian" class="form-control" value="<?php echo $exam_time; ?>" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="submit" name="submit2" value="Perbarui Kategori" class="btn btn-success">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div> <!--/.col-->
+        </div><!--/.row-->
+    </div> <!--/.animated FadeIn-->
+</div> <!-- .content -->
+
+<?php
+if (isset($_POST["submit2"])) 
+{
+    mysqli_query($link, "update exam_category set category='$_POST[examname]', exam_time_in_minute='$_POST[examtime]' where id_exam=$id") or die(mysqli_error($link));
+    
+    ?>
+    <script text="text/javascript">
+        alert("Ujian berhasil diperbarui");
+        window.location="exam_category.php";
+    </script>
+
+    <?php
+}
+?>
+
+
+
+<?php
+include_once "footer.php";
+?>
