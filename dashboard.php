@@ -1,5 +1,6 @@
 <?php
-    include_once "header.php";
+session_start();
+include_once "header.php";
 ?>
 
     <div class="row" style="margin: 0px; padding:0px; margin-bottom: 50px;">

@@ -1,4 +1,5 @@
 <?php
+session_start(); 
 include_once "connection.php";
 ?>
 
@@ -39,7 +40,7 @@ include_once "connection.php";
                     <div class="panel-body">
                         <form action="#" name="form1" method="post">
                             <div class="form-group">
-                                <label class="control-label" for="username">Username</label>
+                                <label class="control-label" for="`username`">Username</label>
                                 <input type="text" placeholder="username" required name="username" id="username" class="form-control">
 
                             </div>
@@ -71,19 +72,17 @@ include_once "connection.php";
 
         if ($count == 0) {
             ?>
-            
             <script type="text/javascript">
-                document.getElementById("failure").style.display="block";
+                document.getElementById("failure").style.display = "block";
             </script>
-
             <?php
         } else {
-            ?>
+            $_SESSION["username"] = $_POST["username"];
 
+            ?>
             <script type="text/javascript">
-                window.location="demo.php";
+                window.location="select_exam.php";
             </script>
-            
             <?php
         }
     }
