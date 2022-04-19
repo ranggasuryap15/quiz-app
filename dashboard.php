@@ -76,10 +76,17 @@ include_once "header.php";
             var xmlhttp=new XMLHttpRequest();
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+<<<<<<< HEAD
                     
                 }
             };
             xmlhttp.open("GET","forajax/save_answer_in_session.php?question_no=" + question_no + "&value1=" + radiovalue,true);
+=======
+                    document.getElementById("total_que").innerHTML = xmlhttp.responseText;
+                }
+            };
+            xmlhttp.open("GET","forajax/save_answer_in_session.php?question_no="+ question_no +"&value1="+radiovalue,true);
+>>>>>>> 5c7588a19a4027830a9d51eaf5adbebc51b13007
             xmlhttp.send(null);
         }
 
