@@ -12,7 +12,7 @@ $answer = "";
 $count = 0;
 $ans = "";
 
-$que_no = $_GET["questionno"];
+$que_no = $_GET["question_no"];
 
 if (isset($_SESSION["answer"][$que_no])) 
 {
@@ -52,13 +52,13 @@ if ($count == 0) {
         <!-- option1 -->
         <tr>
             <td>
-                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt1; ?>">
+                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt1; ?>" onclick="radioclick(this.value, <?php echo $question_no ?>)"
                 <?php
                 if ($ans == $opt1) 
                 {
                     echo "checked";
-                } 
-                ?>
+                }
+                ?>>
             </td>
 
             <td style="padding-left: 10px;">
@@ -66,7 +66,7 @@ if ($count == 0) {
                 if (strpos($opt1, 'images/') != false)
                 {
                     ?>
-                    <img src="admin/<?php echo $opt1; ?>" height="30" width="30" alt="">
+                    <img src="admin/<?php echo $opt1; ?>" height="500" width="500" alt="Option 1">
                     <?php
                 } else {
                     echo $opt1;
@@ -78,13 +78,13 @@ if ($count == 0) {
         <!-- option2 -->
         <tr>
             <td>
-                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt2; ?>">
+                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt2; ?>" onclick="radioclick(this.value, <?php echo $question_no ?>)"
                 <?php
                 if ($ans == $opt2) 
                 {
                     echo "checked";
                 } 
-                ?>
+                ?>>
             </td>
 
             <td style="padding-left: 10px;">
@@ -92,7 +92,7 @@ if ($count == 0) {
                 if (strpos($opt2, 'images/') != false)
                 {
                     ?>
-                    <img src="admin/<?php echo $opt2; ?>" height="30" width="30" alt="">
+                    <img src="admin/<?php echo $opt2; ?>" height="500" width="500" alt="Option 2">
                     <?php
                 } else {
                     echo $opt2;
@@ -104,13 +104,13 @@ if ($count == 0) {
         <!-- option3 -->
         <tr>
             <td>
-                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt3; ?>">
+                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt3; ?>" onclick="radioclick(this.value, <?php echo $question_no ?>)"
                 <?php
                 if ($ans == $opt3)
                 {
                     echo "checked";
                 } 
-                ?>
+                ?>>
             </td>
 
             <td style="padding-left: 10px;">
@@ -118,7 +118,7 @@ if ($count == 0) {
                 if (strpos($opt3, 'images/') != false)
                 {
                     ?>
-                    <img src="admin/<?php echo $opt3; ?>" height="30" width="30" alt="">
+                    <img src="admin/<?php echo $opt3; ?>" height="500" width="500" alt="Option 3">
                     <?php
                 } else {
                     echo $opt3;
@@ -128,15 +128,15 @@ if ($count == 0) {
         </tr>
 
         <!-- option4 -->
-        <tr>
+        <tr> 
             <td>
-                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt4; ?>">
+                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt4; ?>" onclick="radioclick(this.value, <?php echo $question_no ?>)"
                 <?php
                 if ($ans == $opt4) 
                 {
                     echo "checked";
                 } 
-                ?>
+                ?>>
             </td>
 
             <td style="padding-left: 10px;">
@@ -144,7 +144,7 @@ if ($count == 0) {
                 if (strpos($opt4, 'images/') != false)
                 {
                     ?>
-                    <img src="admin/<?php echo $opt4; ?>" height="30" width="30" alt="">
+                    <img src="admin/<?php echo $opt4; ?>" height="500" width="500" alt="">
                     <?php
                 } else {
                     echo $opt4;

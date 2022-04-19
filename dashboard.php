@@ -71,6 +71,18 @@ include_once "header.php";
             xmlhttp.send(null);
         }
 
+        function radioclick(radiovalue, question_no)
+        {
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    
+                }
+            };
+            xmlhttp.open("GET","forajax/save_answer_in_session.php?question_no=" + question_no + "&value1=" + radiovalue,true);
+            xmlhttp.send(null);
+        }
+
         // sebuah function untuk kembali kepada pertanyaan sebelumnya
         function load_previous() {
             if (question_no == "1") {
