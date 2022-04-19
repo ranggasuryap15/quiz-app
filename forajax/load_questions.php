@@ -52,13 +52,13 @@ if ($count == 0) {
         <!-- option1 -->
         <tr>
             <td>
-                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt1; ?>">
+                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt1; ?>" onclick="radioclick(this.value,<?php echo $question_no ?>)"
                 <?php
                 if ($ans == $opt1) 
                 {
                     echo "checked";
                 } 
-                ?>
+                ?>>
             </td>
 
             <td style="padding-left: 10px;">
@@ -78,13 +78,13 @@ if ($count == 0) {
         <!-- option2 -->
         <tr>
             <td>
-                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt2; ?>">
+                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt2; ?>" onclick="radioclick(this.value,<?php echo $question_no ?>)"
                 <?php
                 if ($ans == $opt2) 
                 {
                     echo "checked";
                 } 
-                ?>
+                ?>>
             </td>
 
             <td style="padding-left: 10px;">
@@ -104,13 +104,13 @@ if ($count == 0) {
         <!-- option3 -->
         <tr>
             <td>
-                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt3; ?>">
+                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt3; ?>" onclick="radioclick(this.value,<?php echo $question_no ?>)"
                 <?php
                 if ($ans == $opt3)
                 {
                     echo "checked";
                 } 
-                ?>
+                ?>>
             </td>
 
             <td style="padding-left: 10px;">
@@ -130,13 +130,13 @@ if ($count == 0) {
         <!-- option4 -->
         <tr>
             <td>
-                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt4; ?>">
+                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt4; ?>" onclick="radioclick(this.value,<?php echo $question_no ?>)"
                 <?php
                 if ($ans == $opt4) 
                 {
                     echo "checked";
                 } 
-                ?>
+                ?>>
             </td>
 
             <td style="padding-left: 10px;">
