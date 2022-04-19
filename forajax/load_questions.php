@@ -52,20 +52,15 @@ if ($count == 0) {
         <!-- option1 -->
         <tr>
             <td>
-<<<<<<< HEAD
                 <input type="radio" name="radio1" id="radio1" value="<?php echo $opt1; ?>" onclick="radioclick(this.value, <?php echo $question_no ?>)"
-=======
-                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt1; ?>" onclick="radioclick(this.value,<?php echo $question_no ?>)"
->>>>>>> 5c7588a19a4027830a9d51eaf5adbebc51b13007
+
                 <?php
                 if ($ans == $opt1) 
                 {
                     echo "checked";
-<<<<<<< HEAD
                 }
-=======
+
                 } 
->>>>>>> 5c7588a19a4027830a9d51eaf5adbebc51b13007
                 ?>>
             </td>
 
@@ -86,11 +81,7 @@ if ($count == 0) {
         <!-- option2 -->
         <tr>
             <td>
-<<<<<<< HEAD
                 <input type="radio" name="radio1" id="radio1" value="<?php echo $opt2; ?>" onclick="radioclick(this.value, <?php echo $question_no ?>)"
-=======
-                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt2; ?>" onclick="radioclick(this.value,<?php echo $question_no ?>)"
->>>>>>> 5c7588a19a4027830a9d51eaf5adbebc51b13007
                 <?php
                 if ($ans == $opt2) 
                 {
@@ -116,11 +107,7 @@ if ($count == 0) {
         <!-- option3 -->
         <tr>
             <td>
-<<<<<<< HEAD
                 <input type="radio" name="radio1" id="radio1" value="<?php echo $opt3; ?>" onclick="radioclick(this.value, <?php echo $question_no ?>)"
-=======
-                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt3; ?>" onclick="radioclick(this.value,<?php echo $question_no ?>)"
->>>>>>> 5c7588a19a4027830a9d51eaf5adbebc51b13007
                 <?php
                 if ($ans == $opt3)
                 {
@@ -146,11 +133,7 @@ if ($count == 0) {
         <!-- option4 -->
         <tr> 
             <td>
-<<<<<<< HEAD
                 <input type="radio" name="radio1" id="radio1" value="<?php echo $opt4; ?>" onclick="radioclick(this.value, <?php echo $question_no ?>)"
-=======
-                <input type="radio" name="radio1" id="radio1" value="<?php echo $opt4; ?>" onclick="radioclick(this.value,<?php echo $question_no ?>)"
->>>>>>> 5c7588a19a4027830a9d51eaf5adbebc51b13007
                 <?php
                 if ($ans == $opt4) 
                 {
@@ -173,6 +156,6 @@ if ($count == 0) {
             </td>
         </tr>
     </table>
-    <?php
 }
+    <?php
 ?>
