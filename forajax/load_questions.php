@@ -53,13 +53,10 @@ if ($count == 0) {
         <tr>
             <td>
                 <input type="radio" name="radio1" id="radio1" value="<?php echo $opt1; ?>" onclick="radioclick(this.value, <?php echo $question_no ?>)"
-
                 <?php
                 if ($ans == $opt1) 
                 {
                     echo "checked";
-                }
-
                 } 
                 ?>>
             </td>
@@ -156,6 +153,6 @@ if ($count == 0) {
             </td>
         </tr>
     </table>
-}
     <?php
+}
 ?>

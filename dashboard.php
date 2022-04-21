@@ -15,6 +15,7 @@ include_once "header.php";
                     <div id="total_que" style="float: left;">0</div>
                 </div>
 
+                <!-- Tempat untuk pertanyaan-nya -->
                 <div class="row" style="margin-top: 30px;">
                     <div class="row">
                         <div class="col-lg-10 col-lg-push-1" style="min-height: 300px; background-color: white;" id="load_questions">
