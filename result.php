@@ -2,10 +2,6 @@
 session_start();
 include_once "connection.php";
 include_once "header.php";
-
-$date = date("Y-m-d H:i:s");
-$_SESSION["end_time"] = date("Y-m-d H:i:s", strtotime($date . "+ $_SESSION[exam_time] minutes"));
-
 ?>
 
 
@@ -36,13 +32,13 @@ $_SESSION["end_time"] = date("Y-m-d H:i:s", strtotime($date . "+ $_SESSION[exam_
                     }
                 }
 
-                $count = 0;
+                $total_question = 0;
                 $res = mysqli_query($link,"select * from questions where category='$_SESSION[quiz]'");
-                $count = mysqli_num_rows($res);
-                $wrong = $count - $correct;
+                $total_question = mysqli_num_rows($res);
+                $wrong = $total_question - $correct;
                 echo "<br>"; echo "<br>";
                 echo "<center>";
-                echo "Total Questions = " . $count;
+                echo "Total Questions = " . $total_question;
                 echo "<br>";
                 echo "Correct Answer = " . $correct;
                 echo "<br>";
@@ -55,13 +51,14 @@ $_SESSION["end_time"] = date("Y-m-d H:i:s", strtotime($date . "+ $_SESSION[exam_
 
 <?php
 
-if (isset($_SESSION["exam_start"])){
-    $date = date("Y-m-d");
-    mysqli_query($link, "insert into exam_results(id_result, username, exam_type, total_question, correct_answer, wrong_answer, exam_time) values(NULL,'$_SESSION[username]', '$_SESSION[quiz]', '$count', '$correct', '$wrong', '$date')") or die (mysqli_error($link));
+if (isset($_SESSION["quiz_start"])){
+    date_default_timezone_set('Asia/Jakarta'); // untuk mendapatkan timezone Jakarta
+    $date = date("Y-m-d"); // untuk mendapatkan tanggal hari ini menggunakan format (Tahun-Bulan-Tanggal)
+    mysqli_query($link, "insert into quiz_results(id_result, username, quiz_name, total_question, correct_answer, wrong_answer, quiz_time) values(NULL,'$_SESSION[username]', '$_SESSION[quiz]', '$total_question', '$correct', '$wrong', '$date')") or die (mysqli_error($link));
 }
 
-if($isset($_SESSION["exam_start"])){
-    unset($_SESSION["exam_start"]);
+if($isset($_SESSION["quiz_start"])){
+    unset($_SESSION["quiz_start"]);
     ?>
     <script type="text/javascript">
         window.location.href = window.location.href;
