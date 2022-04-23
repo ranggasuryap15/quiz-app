@@ -1,10 +1,10 @@
 <?php
 session_start();
 include "../connection.php";
-$exam_category = $_GET["exam_category"];
-$_SESSION["exam_category"] = $exam_category;
+$quiz = $_GET["quiz"];
+$_SESSION["quiz"] = $quiz;
 
-$res=mysqli_query($link,"select * from exam_category where category='$exam_category'");
+$res=mysqli_query($link,"select * from quiz where category='$quiz'");
 while($row=mysqli_fetch_array($res))
 {
     $_SESSION["exam_time"] = $row["exam_time_in_minute"];

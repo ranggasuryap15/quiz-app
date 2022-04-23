@@ -20,7 +20,7 @@ include_once "header.php";
 
         <div class="col-lg-6 col-lg-push-3" style="min-height: 500px; background-color: white;">
             <?php
-            $res = mysqli_query($link, "select * from exam_category");
+            $res = mysqli_query($link, "select * from quiz");
             while ($row = mysqli_fetch_array($res))
             {
                 ?>
@@ -37,7 +37,7 @@ include_once "header.php";
 ?>
 
 <script type="text/javascript">
-    function set_exam_type_session(exam_category)
+    function set_exam_type_session(quiz)
     {
         var xmlhttp=new XMLHttpRequest();
         xmlhttp.onreadystatechange=function() {
@@ -45,7 +45,7 @@ include_once "header.php";
                 window.location = "dashboard.php";
             }
         };
-        xmlhttp.open("GET","forajax/set_exam_type_session.php?exam_category="+ exam_category,true);
+        xmlhttp.open("GET","forajax/set_exam_type_session.php?quiz="+ quiz,true);
         xmlhttp.send(null);
     }
 </script>

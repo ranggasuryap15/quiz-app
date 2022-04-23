@@ -43,10 +43,10 @@
                             <a href="demo.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                         </li>
                         <li>
-                            <a href="exam_category.php"> <i class="menu-icon fa fa-dashboard"></i>Tambah & Ubah Ujian </a>
+                            <a href="add_quiz.php"> <i class="menu-icon fa fa-dashboard"></i>Tambah & Ubah Ujian </a>
                         </li>
                         <li>
-                            <a href="add_edit_exam_questions.php"> <i class="menu-icon fa fa-dashboard"></i>Tambah Pertanyaan </a>
+                            <a href="add_edit_quiz_questions.php"> <i class="menu-icon fa fa-dashboard"></i>Tambah Pertanyaan </a>
                         </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->

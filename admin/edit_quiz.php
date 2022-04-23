@@ -3,9 +3,9 @@ include_once "header.php";
 include_once "../connection.php";
 
 $id = $_GET["id"];
-$res = mysqli_query($link, "select * from exam_category where id_exam=$id");
+$res = mysqli_query($link, "select * from quiz where id_exam=$id");
 while ($row = mysqli_fetch_array($res)) {
-    $exam_category = $row["category"];
+    $quiz = $row["category"];
     $exam_time = $row["exam_time_in_minute"];
 }
 ?>
@@ -35,7 +35,7 @@ while ($row = mysqli_fetch_array($res)) {
                                     <div class="card-body card-block">
                                         <div class="form-group">
                                             <label for="examname" class=" form-control-label">Kategori Ujian Baru</label>
-                                            <input type="text" name="examname" placeholder="Tambahkan Kategori Baru" class="form-control" value="<?php echo $exam_category; ?>" required>
+                                            <input type="text" name="examname" placeholder="Tambahkan Kategori Baru" class="form-control" value="<?php echo $quiz; ?>" required>
                                         </div>
                                         
                                         <div class="form-group">
@@ -60,12 +60,12 @@ while ($row = mysqli_fetch_array($res)) {
 <?php
 if (isset($_POST["submit2"])) 
 {
-    mysqli_query($link, "update exam_category set category='$_POST[examname]', exam_time_in_minute='$_POST[examtime]' where id_exam=$id") or die(mysqli_error($link));
+    mysqli_query($link, "update quiz set category='$_POST[examname]', exam_time_in_minute='$_POST[examtime]' where id_exam=$id") or die(mysqli_error($link));
     
     ?>
     <script text="text/javascript">
         alert("Ujian berhasil diperbarui");
-        window.location="exam_category.php";
+        window.location="quiz.php";
     </script>
 
     <?php

@@ -30,7 +30,7 @@ include_once "../connection.php";
                             <tbody>
                                 <?php
                                 $count = 0;
-                                $res = mysqli_query($link, "select * from exam_category");
+                                $res = mysqli_query($link, "select * from quiz");
 
                                 while ($row = mysqli_fetch_array($res)) 
                                 {

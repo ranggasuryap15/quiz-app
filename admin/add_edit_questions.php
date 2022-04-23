@@ -3,19 +3,19 @@ include_once "header.php";
 include_once "../connection.php";
 
 $id = $_GET["id"];
-$id1 = $_GET["id1"]; // ini untuk id yang exam_category
-$exam_category = '';
-$res = mysqli_query($link, "select * from exam_category where id_exam=$id");
+$id1 = $_GET["id1"]; // ini untuk id yang quiz
+$quiz = '';
+$res = mysqli_query($link, "select * from quiz where id_exam=$id");
 
 while ($row = mysqli_fetch_array($res)) {
-    $exam_category = $row["category"];
+    $quiz = $row["category"];
 }
 ?>
 <div class="breadcrumbs">
     <div class="col-sm-12">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Tambahkan Pertanyaan pada Kategori <?php echo "<p style='color: blue; font-weight: bold; display: inline;'>" . $exam_category . "</p>"; ?></h1>
+                <h1>Tambahkan Pertanyaan pada Kategori <?php echo "<p style='color: blue; font-weight: bold; display: inline;'>" . $quiz . "</p>"; ?></h1>
             </div>
         </div>
     </div>
@@ -143,7 +143,7 @@ while ($row = mysqli_fetch_array($res)) {
             
             <?php
 
-            $res = mysqli_query($link, "select * from questions where category='$exam_category' order by question_no asc");
+            $res = mysqli_query($link, "select * from questions where category='$quiz' order by question_no asc");
 
             while ($row = mysqli_fetch_array($res))
             {
@@ -245,7 +245,7 @@ if (isset($_POST["submit3"]))
     
     $loop = 0; // untuk looping
     $count = 0; 
-    $res = mysqli_query($link, "select * from questions where category='$exam_category' order by id_question asc") or die(mysqli_error($link));
+    $res = mysqli_query($link, "select * from questions where category='$quiz' order by id_question asc") or die(mysqli_error($link));
 
     $count = mysqli_num_rows($res);
 
@@ -260,7 +260,7 @@ if (isset($_POST["submit3"]))
     }
 
     $loop = $loop + 1;
-    mysqli_query($link, "insert into questions values (NULL,'$loop','$question','$opt1','$opt2','$opt3','$opt4','$answerOpt','$exam_category')") or die(mysqli_error($link));
+    mysqli_query($link, "insert into questions values (NULL,'$loop','$question','$opt1','$opt2','$opt3','$opt4','$answerOpt','$quiz')") or die(mysqli_error($link));
 
     ?>
     <script>
@@ -278,7 +278,7 @@ if (isset($_POST["submit4"]))
 {    
     $loop = 0; // untuk looping
     $count = 0; 
-    $res = mysqli_query($link, "select * from questions where category='$exam_category' order by id_question asc") or die(mysqli_error($link));
+    $res = mysqli_query($link, "select * from questions where category='$quiz' order by id_question asc") or die(mysqli_error($link));
 
     $count = mysqli_num_rows($res);
 
@@ -332,7 +332,7 @@ if (isset($_POST["submit4"]))
     $file_destination_5 = "option_images/" . $tm . $file_name_5;
     move_uploaded_file($file_tmp, $dst5);
 
-    mysqli_query($link, "insert into questions values (NULL,'$loop','$_POST[img_question]','$file_destination_1','$file_destination_2','$file_destination_4','$file_destination_4','$file_destination_5','$exam_category')") or die(mysqli_error($link));
+    mysqli_query($link, "insert into questions values (NULL,'$loop','$_POST[img_question]','$file_destination_1','$file_destination_2','$file_destination_4','$file_destination_4','$file_destination_5','$quiz')") or die(mysqli_error($link));
 
     ?>
     <script>

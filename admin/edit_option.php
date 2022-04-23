@@ -3,7 +3,7 @@ include_once "header.php";
 include_once "../connection.php";
 
 $id = $_GET["id"];
-$id1 = $_GET["id1"]; // ini untuk id yang exam_category
+$id1 = $_GET["id1"]; // ini untuk id yang quiz
 
 $question = "";
 $opt1 = "";

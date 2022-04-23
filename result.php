@@ -18,7 +18,7 @@ $_SESSION["end_time"] = date("Y-m-d H:i:s", strtotime($date . "+ $_SESSION[exam_
                 if(isset($_SESSION["answer"])){
                     for ($i = 1; $i <= sizeof($_SESSION["answer"]); $i++){
                         $answer="";
-                        $res = mysqli_query($link,"select * from questions where category='$_SESSION[exam_category]' && question_no=$i");
+                        $res = mysqli_query($link,"select * from questions where category='$_SESSION[quiz]' && question_no=$i");
 
                         while($row=mysqli_fetch_array($res)){
                                 $answer = $row["answer"];
@@ -37,7 +37,7 @@ $_SESSION["end_time"] = date("Y-m-d H:i:s", strtotime($date . "+ $_SESSION[exam_
                 }
 
                 $count = 0;
-                $res = mysqli_query($link,"select * from questions where category='$_SESSION[exam_category]'");
+                $res = mysqli_query($link,"select * from questions where category='$_SESSION[quiz]'");
                 $count = mysqli_num_rows($res);
                 $wrong = $count - $correct;
                 echo "<br>"; echo "<br>";
@@ -57,7 +57,7 @@ $_SESSION["end_time"] = date("Y-m-d H:i:s", strtotime($date . "+ $_SESSION[exam_
 
 if (isset($_SESSION["exam_start"])){
     $date = date("Y-m-d");
-    mysqli_query($link, "insert into exam_results(id_result, username, exam_type, total_question, correct_answer, wrong_answer, exam_time) values(NULL,'$_SESSION[username]', '$_SESSION[exam_category]', '$count', '$correct', '$wrong', '$date')") or die (mysqli_error($link));
+    mysqli_query($link, "insert into exam_results(id_result, username, exam_type, total_question, correct_answer, wrong_answer, exam_time) values(NULL,'$_SESSION[username]', '$_SESSION[quiz]', '$count', '$correct', '$wrong', '$date')") or die (mysqli_error($link));
 }
 
 if($isset($_SESSION["exam_start"])){
