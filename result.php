@@ -53,7 +53,7 @@ include_once "header.php";
 
 if (isset($_SESSION["quiz_start"])){
     date_default_timezone_set('Asia/Jakarta'); // untuk mendapatkan timezone Jakarta
-    $date = date("Y-m-d"); // untuk mendapatkan tanggal hari ini menggunakan format (Tahun-Bulan-Tanggal)
+    $date = date("Y-m-d h:i:s"); // untuk mendapatkan tanggal hari ini menggunakan format (Tahun-Bulan-Tanggal)
     mysqli_query($link, "insert into quiz_results(id_result, username, quiz_name, total_question, correct_answer, wrong_answer, quiz_time) values(NULL,'$_SESSION[username]', '$_SESSION[quiz]', '$total_question', '$correct', '$wrong', '$date')") or die (mysqli_error($link));
 }
 
