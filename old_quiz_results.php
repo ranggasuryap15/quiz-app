@@ -7,7 +7,7 @@ include_once "connection.php";
 <div class="row" style="margin: 0px; padding:0px; margin-bottom: 50px;">
     <div class="col-lg-6 col-lg-push-3" style="min-height: 500px; background-color: white;">
         <center>
-            <h1>Old Quiz Results</h1>
+            <h1>Hasil Kuis Lama</h1>
         </center>
         <?php
         $count = 0;
@@ -17,7 +17,7 @@ include_once "connection.php";
         if ($count == 0) {
             ?>
             <center>
-                <h3>No Results Found</h3>
+                <h3>Hasil Tidak Ditemukan</h3>
             </center>
             <?php
         } else {
