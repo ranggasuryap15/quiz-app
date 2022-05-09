@@ -1,6 +1,15 @@
 <?php
+session_start();
 include_once "header.php";
 include_once "../connection.php";
+
+if (!isset($_SESSION["admin"])) {
+    ?>
+    <script type="text/javascript">
+        window.location = "index.php";
+    </script>
+    <?php
+}
 
 $id = $_GET["id"];
 $id1 = $_GET["id1"]; // ini untuk id yang quiz

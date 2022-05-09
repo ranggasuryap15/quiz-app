@@ -40,9 +40,6 @@
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="demo.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
-                        </li>
-                        <li>
                             <a href="add_quiz.php"> <i class="menu-icon fa fa-dashboard"></i>Tambah & Ubah Ujian</a>
                         </li>
                         <li>
@@ -74,7 +71,7 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                            <a class="nav-link" href="logout.php"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
                     </div>
                 </div>

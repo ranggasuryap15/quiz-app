@@ -1,6 +1,15 @@
 <?php
+session_start();
 include_once "header.php";
 include_once "../connection.php";
+
+if (!isset($_SESSION["admin"])) {
+    ?>
+    <script type="text/javascript">
+        window.location = "index.php";
+    </script>
+    <?php
+}
 
 $id = $_GET["id"];
 $res = mysqli_query($link, "select * from quiz where id_exam=$id");

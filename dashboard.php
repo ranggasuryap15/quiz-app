@@ -1,6 +1,14 @@
 <?php
 session_start();
 include_once "header.php";
+
+if (!isset($_SESSION["username"])) {
+    ?>
+    <script type="text/javascript">
+        window.location = "login.php";
+    </script>
+    <?php
+}
 ?>
 
     <div class="row" style="margin: 0px; padding:0px; margin-bottom: 50px;">

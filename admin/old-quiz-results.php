@@ -2,6 +2,14 @@
 session_start();
 include_once "header.php";
 include "../connection.php";
+
+if (!isset($_SESSION["admin"])) {
+    ?>
+    <script type="text/javascript">
+        window.location = "index.php";
+    </script>
+    <?php
+}
 ?>
 
 <div class="breadcrumbs">
