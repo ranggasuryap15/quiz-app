@@ -50,7 +50,7 @@ if (!isset($_SESSION["admin"])) {
                                                 <?php echo $count; ?>
                                             </th>
                                             <td><?php echo $row["quiz_name"]?></td>
-                                            <td><?php echo $row["quiz_time"] ?></td>
+                                            <td><?php echo $row["quiz_timer"] ?></td>
                                             <td><a href="add_edit_questions.php?id=<?php echo $row["id_quiz"] ?>">Pilih</a></td>
                                         </tr>
                                     <?php

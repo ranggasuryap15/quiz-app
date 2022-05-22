@@ -80,7 +80,7 @@ if (!isset($_SESSION["admin"])) {
                                                                 <?php echo $count; ?>
                                                             </th>
                                                             <td><?php echo $row["quiz_name"]?></td>
-                                                            <td><?php echo $row["quiz_time"] ?></td>
+                                                            <td><?php echo $row["quiz_timer"] ?></td>
 
                                                             <td>
                                                                 <a href="edit_quiz.php?id=<?php echo $row["id_quiz"] ?>" class="btn btn-primary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
