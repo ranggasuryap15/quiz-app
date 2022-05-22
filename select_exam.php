@@ -13,7 +13,6 @@ if (!isset($_SESSION["username"])) {
 
 <?php
 include_once "connection.php";
-include_once "header.php";
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
