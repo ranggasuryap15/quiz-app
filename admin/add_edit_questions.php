@@ -14,10 +14,10 @@ if (!isset($_SESSION["admin"])) {
 $id = $_GET["id"];
 $id1 = $_GET["id1"]; // ini untuk id yang quiz
 $quiz = '';
-$res = mysqli_query($link, "select * from quiz where id_exam=$id");
+$res = mysqli_query($link, "select * from quiz where id_quiz=$id");
 
 while ($row = mysqli_fetch_array($res)) {
-    $quiz = $row["category"];
+    $quiz = $row["quiz_name"];
 }
 ?>
 <div class="breadcrumbs">
@@ -152,7 +152,7 @@ while ($row = mysqli_fetch_array($res)) {
             
             <?php
 
-            $res = mysqli_query($link, "select * from questions where category='$quiz' order by question_no asc");
+            $res = mysqli_query($link, "select * from questions where quiz_name='$quiz' order by question_no asc");
 
             while ($row = mysqli_fetch_array($res))
             {
@@ -254,7 +254,7 @@ if (isset($_POST["submit3"]))
     
     $loop = 0; // untuk looping
     $count = 0; 
-    $res = mysqli_query($link, "select * from questions where category='$quiz' order by id_question asc") or die(mysqli_error($link));
+    $res = mysqli_query($link, "select * from questions where quiz_name='$quiz' order by id_question asc") or die(mysqli_error($link));
 
     $count = mysqli_num_rows($res);
 
@@ -287,7 +287,7 @@ if (isset($_POST["submit4"]))
 {    
     $loop = 0; // untuk looping
     $count = 0; 
-    $res = mysqli_query($link, "select * from questions where category='$quiz' order by id_question asc") or die(mysqli_error($link));
+    $res = mysqli_query($link, "select * from questions where quiz_name='$quiz' order by id_question asc") or die(mysqli_error($link));
 
     $count = mysqli_num_rows($res);
 

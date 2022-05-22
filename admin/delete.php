@@ -11,7 +11,7 @@ if (!isset($_SESSION["admin"])) {
 }
 
 $id = $_GET["id"];
-mysqli_query($link, "delete from quiz where id_exam=$id");
+mysqli_query($link, "delete from quiz where id_quiz=$id");
 ?>
 
 <script type="text/javascript">

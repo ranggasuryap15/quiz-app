@@ -49,9 +49,9 @@ if (!isset($_SESSION["admin"])) {
                                             <th scope="row">
                                                 <?php echo $count; ?>
                                             </th>
-                                            <td><?php echo $row["category"]?></td>
-                                            <td><?php echo $row["exam_time_in_minute"] ?></td>
-                                            <td><a href="add_edit_questions.php?id=<?php echo $row["id_exam"] ?>">Pilih</a></td>
+                                            <td><?php echo $row["quiz_name"]?></td>
+                                            <td><?php echo $row["quiz_time"] ?></td>
+                                            <td><a href="add_edit_questions.php?id=<?php echo $row["id_quiz"] ?>">Pilih</a></td>
                                         </tr>
                                     <?php
                                 }

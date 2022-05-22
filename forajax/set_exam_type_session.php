@@ -4,10 +4,10 @@ include "../connection.php";
 $quiz = $_GET["quiz"];
 $_SESSION["quiz"] = $quiz;
 
-$res=mysqli_query($link,"select * from quiz where category='$quiz'");
+$res=mysqli_query($link,"select * from quiz where quiz_name='$quiz'");
 while($row=mysqli_fetch_array($res))
 {
-    $_SESSION["quiz_time"] = $row["exam_time_in_minute"];
+    $_SESSION["quiz_time"] = $row["quiz_time"];
 }
 date_default_timezone_set('Asia/Jakarta');
 $date = date("Y-m-d H:i:s");
