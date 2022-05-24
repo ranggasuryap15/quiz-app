@@ -82,7 +82,7 @@ include_once "connection.php";
     <?php
     if (isset($_POST['register'])) {
         $count = 0;
-        $res = mysqli_query($link, "select * from registration where username='$_POST[username]'") or die(mysqli_error($link));
+        $res = mysqli_query($link, "select * from participant_account where username='$_POST[username]'") or die(mysqli_error($link));
         $count = mysqli_num_rows($res);
 
         if ($count > 0) {
@@ -94,7 +94,7 @@ include_once "connection.php";
             </script>
             <?php
         } else {
-            mysqli_query($link, "insert into registration values(NULL, '$_POST[fullname]', '$_POST[email]', '$_POST[username]', '$_POST[password]')");
+            mysqli_query($link, "insert into participant_account values(NULL, '$_POST[fullname]', '$_POST[email]', '$_POST[username]', '$_POST[password]')");
 
             ?>
 

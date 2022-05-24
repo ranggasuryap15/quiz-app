@@ -66,7 +66,7 @@ include_once "connection.php";
     if (isset($_POST["login"])) {
 
         $count = 0;
-        $res = mysqli_query($link, "select * from registration where username='$_POST[username]' && password='$_POST[password]'");
+        $res = mysqli_query($link, "select * from participant_account where username='$_POST[username]' && password='$_POST[password]'");
         
         $count = mysqli_num_rows($res);
 
