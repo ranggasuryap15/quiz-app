@@ -24,7 +24,7 @@ while ($row = mysqli_fetch_array($res)) {
     <div class="col-sm-12">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Tambahkan Pertanyaan pada Kategori <?php echo "<p style='color: blue; font-weight: bold; display: inline;'>" . $quiz . "</p>"; ?></h1>
+                <h1>Tambahkan Pertanyaan pada Kuis <?php echo "<p style='color: blue; font-weight: bold; display: inline;'>" . $quiz . "</p>"; ?></h1>
             </div>
         </div>
     </div>
@@ -152,7 +152,7 @@ while ($row = mysqli_fetch_array($res)) {
             
             <?php
 
-            $res = mysqli_query($link, "select * from questions where quiz_name='$quiz' order by question_no asc");
+            $res = mysqli_query($link, "SELECT * FROM questions WHERE quiz_name='$quiz' ORDER BY question_no asc");
 
             while ($row = mysqli_fetch_array($res))
             {

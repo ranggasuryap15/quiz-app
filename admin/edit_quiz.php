@@ -74,7 +74,7 @@ if (isset($_POST["submit2"]))
     ?>
     <script text="text/javascript">
         alert("Ujian berhasil diperbarui");
-        window.location="quiz.php";
+        window.location="add_quiz.php";
     </script>
 
     <?php
