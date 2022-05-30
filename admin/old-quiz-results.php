@@ -12,16 +12,6 @@ if (!isset($_SESSION["admin"])) {
 }
 ?>
 
-<div class="breadcrumbs">
-    <div class="col-sm-4">
-        <div class="page-header float-left">
-            <div class="page-title">
-                <h1>Semua Hasil Kuis</h1>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">
@@ -43,7 +33,7 @@ if (!isset($_SESSION["admin"])) {
                         </center>
                         <?php
                     } else {
-                        echo "<table class='table table_bordered'>";
+                        echo "<table class='table table_bordered' style='margin-top: 10px;'>";
                         
                         echo "<tr style='background-color: #006DF0; color: white;'>";
                             echo "<th>"; echo "Username"; echo "</th>";

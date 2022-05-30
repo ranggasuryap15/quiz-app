@@ -81,7 +81,7 @@ include_once "connection.php";
 
             ?>
             <script type="text/javascript">
-                window.location="select_exam.php";
+                window.location="select_quiz.php";
             </script>
             <?php
         }
