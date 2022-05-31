@@ -2,7 +2,7 @@
 session_start();
 include_once "../connection.php";
 
-if (!isset($_SESSION["admin"])) {
+if (!isset($_SESSION["creator"])) {
     ?>
     <script type="text/javascript">
         window.location = "index.php";

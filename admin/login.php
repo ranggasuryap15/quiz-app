@@ -78,8 +78,10 @@ if (isset($_POST["submit1"]))
 {
     $username = mysqli_real_escape_string($link, $_POST["username"]);
     $password = mysqli_real_escape_string($link, $_POST["password"]);
+    $role = "creator";
 
-    $res = mysqli_query($link, "select * from creator_account where username='$username' && password='$password'");
+    $res = mysqli_query($link, "SELECT * FROM account WHERE username='$username' AND password='$password' AND role='$role'");
+
     $count = mysqli_num_rows($res);
 
     if ($count == 0) {
@@ -89,7 +91,7 @@ if (isset($_POST["submit1"]))
             </script>
         <?php
     } else {
-        $_SESSION["admin"] = $username;
+        $_SESSION["creator"] = $username;
         ?>
             <script type="text/javascript">
                 window.location="add_quiz.php";
