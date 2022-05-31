@@ -79,7 +79,11 @@ include_once "../connection.php";
 <?php
 if (isset($_POST['register'])) {
     $count = 0;
-    $res = mysqli_query($link, "select * from creator_account where username='$_POST[username]'") or die(mysqli_error($link));
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $role = "creator";
+
+    $res = mysqli_query($link, "SELECT * FROM account WHERE username='$username' AND role='$role'") or die(mysqli_error($link));
     $count = mysqli_num_rows($res);
 
     if ($count > 0) {
@@ -91,7 +95,7 @@ if (isset($_POST['register'])) {
         </script>
         <?php
     } else {
-        mysqli_query($link, "insert into creator_account values(NULL, '$_POST[username]', '$_POST[password]')");
+        mysqli_query($link, "INSERT INTO account VALUES(NULL, '$username', '$password', '$role')");
 
         ?>
 
