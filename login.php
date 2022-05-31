@@ -65,25 +65,39 @@ include_once "connection.php";
     <?php
     if (isset($_POST["login"])) {
 
+        // untuk menangkap data yuang dikirim dari form login
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
         $count = 0;
-        $res = mysqli_query($link, "select * from participant_account where username='$_POST[username]' && password='$_POST[password]'");
-        
+
+        $res = mysqli_query($link, "SELECT * FROM account WHERE username='$username' AND password='$password'");
+
         $count = mysqli_num_rows($res);
 
-        if ($count == 0) {
-            ?>
-            <script type="text/javascript">
-                document.getElementById("failure").style.display = "block";
-            </script>
-            <?php
-        } else {
-            $_SESSION["username"] = $_POST["username"];
+        
+        // $res = mysqli_query($link, "select * from participant_account where username='$_POST[username]' && password='$_POST[password]'");    
 
-            ?>
-            <script type="text/javascript">
-                window.location="select_quiz.php";
-            </script>
-            <?php
+        if ($count > 0) {
+
+            $data = mysqli_fetch_array($res);
+
+            // cek jika user login sebagai participant
+            if ($data['role'] == "participant") {
+                
+                // buat session login dan username
+                $_SESSION['username'] = $username;
+                $_SESSION['role'] = "participant";
+
+                // alihkan ke halaman participant
+                header("location:select_quiz.php");
+            } else {
+                ?>
+                <script type="text/javascript">
+                    document.getElementById("failure").style.display = "block";
+                </script>
+                <?php
+            }
         }
     }
     ?>
