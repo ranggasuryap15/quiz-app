@@ -74,9 +74,7 @@ include_once "connection.php";
         $res = mysqli_query($link, "SELECT * FROM account WHERE username='$username' AND password='$password'");
 
         $count = mysqli_num_rows($res);
-
-        
-        // $res = mysqli_query($link, "select * from participant_account where username='$_POST[username]' && password='$_POST[password]'");    
+  
 
         if ($count > 0) {
 
@@ -98,6 +96,12 @@ include_once "connection.php";
                 </script>
                 <?php
             }
+        } else {
+            ?>
+            <script type="text/javascript">
+                document.getElementById("failure").style.display = "block";
+            </script>
+            <?php
         }
     }
     ?>
@@ -110,8 +114,6 @@ include_once "connection.php";
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.sticky.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
-
-
 </body>
 
 </html>
