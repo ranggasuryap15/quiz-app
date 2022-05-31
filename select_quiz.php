@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["username"])) {
+// cek apakah yang mengakses halaman ini sudah login atau belum?
+if ($_SESSION['role'] == "") {
     ?>
-    <!-- Seandainya belum login, maka kembali lagi ke halaman login -->
     <script type="text/javascript">
         window.location = "login.php";
     </script>
