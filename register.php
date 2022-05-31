@@ -38,15 +38,15 @@ include_once "connection.php";
                     <div class="panel-body">
                         <form action="#" name="form1" method="post">
                             <div class="row">
-                                <div class="form-group col-lg-12">
+                                <!-- <div class="form-group col-lg-12">
                                     <label>Nama Lengkap</label>
                                     <input type="text" name="fullname" class="form-control" title="Mohon masukkan nama lengkap Anda" required>
-                                </div>
+                                </div> -->
                                 
-                                <div class="form-group col-lg-12">
+                                <!-- <div class="form-group col-lg-12">
                                     <label>Email</label>
                                     <input type="email" name="email" class="form-control" required>
-                                </div>
+                                </div> -->
                                 
                                 <div class="form-group col-lg-12">
                                     <label>Nama Pengguna</label>
@@ -82,7 +82,9 @@ include_once "connection.php";
     <?php
     if (isset($_POST['register'])) {
         $count = 0;
-        $res = mysqli_query($link, "select * from participant_account where username='$_POST[username]'") or die(mysqli_error($link));
+        $username = $_POST['username'];
+
+        $res = mysqli_query($link, "SELECT * FROM account WHERE username='$username' AND role='participant'") or die(mysqli_error($link));
         $count = mysqli_num_rows($res);
 
         if ($count > 0) {
@@ -94,7 +96,11 @@ include_once "connection.php";
             </script>
             <?php
         } else {
-            mysqli_query($link, "insert into participant_account values(NULL, '$_POST[fullname]', '$_POST[email]', '$_POST[username]', '$_POST[password]')");
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $role = "participant";
+
+            mysqli_query($link, "INSERT INTO account VALUES(NULL, '$username', '$password', '$role')");
 
             ?>
 
