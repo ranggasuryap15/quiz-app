@@ -66,7 +66,7 @@ if ($count == 0) {
                 if (strpos($opt1, 'images/') != false)
                 {
                     ?>
-                    <img src="admin/<?php echo $opt1; ?>" height="500" width="500" alt="Option 1">
+                    <img src="creator/<?php echo $opt1; ?>" height="500" width="500" alt="Option 1">
                     <?php
                 } else {
                     echo $opt1;
@@ -92,7 +92,7 @@ if ($count == 0) {
                 if (strpos($opt2, 'images/') != false)
                 {
                     ?>
-                    <img src="admin/<?php echo $opt2; ?>" height="500" width="500" alt="Option 2">
+                    <img src="creator/<?php echo $opt2; ?>" height="500" width="500" alt="Option 2">
                     <?php
                 } else {
                     echo $opt2;
@@ -118,7 +118,7 @@ if ($count == 0) {
                 if (strpos($opt3, 'images/') != false)
                 {
                     ?>
-                    <img src="admin/<?php echo $opt3; ?>" height="500" width="500" alt="Option 3">
+                    <img src="creator/<?php echo $opt3; ?>" height="500" width="500" alt="Option 3">
                     <?php
                 } else {
                     echo $opt3;
@@ -144,7 +144,7 @@ if ($count == 0) {
                 if (strpos($opt4, 'images/') != false)
                 {
                     ?>
-                    <img src="admin/<?php echo $opt4; ?>" height="500" width="500" alt="">
+                    <img src="creator/<?php echo $opt4; ?>" height="500" width="500" alt="">
                     <?php
                 } else {
                     echo $opt4;
