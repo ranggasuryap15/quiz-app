@@ -86,6 +86,9 @@ include_once "connection.php";
                 // buat session login dan username
                 $_SESSION['username'] = $username;
                 $_SESSION['role'] = "participant";
+                
+                $res = mysqli_query($link, "SELECT * FROM account WHERE role='participant' AND username='$username'");
+                $_SESSION['id_participant'] = $row['id_account'];
 
                 // alihkan ke halaman participant
                 header("location:select_quiz.php");
