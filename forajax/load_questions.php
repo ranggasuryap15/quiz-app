@@ -19,7 +19,7 @@ if (isset($_SESSION["answer"][$que_no]))
     $ans = $_SESSION["answer"][$que_no];
 }
 
-$res = mysqli_query($link, "select * from questions where quiz_name='$_SESSION[quiz]' && question_no=$_GET[question_no]");
+$res = mysqli_query($link, "SELECT * FROM questions WHERE quiz_name='$_SESSION[quiz]' && question_no=$_GET[question_no]");
 $count = mysqli_num_rows($res);
 
 if ($count == 0) {
