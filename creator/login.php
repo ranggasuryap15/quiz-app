@@ -92,6 +92,13 @@ if (isset($_POST["submit1"]))
         <?php
     } else {
         $_SESSION["creator"] = $username;
+
+        // mengambil id account untuk creator yang membuat pertanyaan
+        $res = mysqli_query($link, "SELECT id_account FROM account WHERE username='$username'");
+        $row = mysqli_fetch_array($res);
+        $id_creator = $row['id_account'];
+        $_SESSION["id_creator"] = $id_creator;
+        
         ?>
             <script type="text/javascript">
                 window.location="add_quiz.php";
