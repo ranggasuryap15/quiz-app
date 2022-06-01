@@ -23,7 +23,7 @@ if (!isset($_SESSION["creator"])) {
                     </center>
                     <?php
                     $count = 0;
-                    $res = mysqli_query($link, "select * from quiz_results order by id_result desc");
+                    $res = mysqli_query($link, "SELECT * FROM quiz_results ORDER BY id_result desc");
                     $count = mysqli_num_rows($res);
 
                     if ($count == 0) {

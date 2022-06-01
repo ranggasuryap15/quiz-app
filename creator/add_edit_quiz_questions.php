@@ -39,7 +39,7 @@ if (!isset($_SESSION["creator"])) {
                             <tbody>
                                 <?php
                                 $count = 0;
-                                $res = mysqli_query($link, "select * from quiz");
+                                $res = mysqli_query($link, "SELECT * FROM quiz WHERE id_creator='$_SESSION[id_creator]'");
 
                                 while ($row = mysqli_fetch_array($res)) 
                                 {
