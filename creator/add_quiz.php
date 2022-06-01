@@ -114,7 +114,7 @@ if (!isset($_SESSION["creator"])) {
 <?php
 if (isset($_POST["submit2"])) 
 {
-    mysqli_query($link, "insert into quiz values(NULL, '$_POST[examname]', '$_POST[examtime]')") or die(mysqli_error($link));
+    mysqli_query($link, "INSERT INTO quiz VALUES(NULL, '$_POST[examname]', '$_POST[examtime]', '$_SESSION[id_creator]')") or die(mysqli_error($link));
     
     ?>
     <script text="text/javascript">
