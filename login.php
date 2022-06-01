@@ -87,7 +87,9 @@ include_once "connection.php";
                 $_SESSION['username'] = $username;
                 $_SESSION['role'] = "participant";
                 
-                $res = mysqli_query($link, "SELECT * FROM account WHERE role='participant' AND username='$username'");
+                // untuk mendapatkan id account yang sudah login
+                $res = mysqli_query($link, "SELECT * FROM account WHERE role='participant' AND username='$_SESSION[username]'");
+                $row = mysqli_fetch_array($res);
                 $_SESSION['id_participant'] = $row['id_account'];
 
                 // alihkan ke halaman participant
