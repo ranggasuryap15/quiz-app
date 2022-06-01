@@ -23,10 +23,12 @@ if (!isset($_SESSION["creator"])) {
                     </center>
                     <?php
                     $count = 0;
-                    $res = mysqli_query($link, "SELECT a.username, q.quiz_name, qr.total_question, qr.correct_answer, qr.wrong_answer, qr.quiz_time FROM quiz_results qr INNER JOIN quiz q 
+                    $sql = "SELECT a.username, q.quiz_name, qr.total_question, qr.correct_answer, qr.wrong_answer, qr.quiz_time FROM quiz_results qr INNER JOIN quiz q 
                     ON qr.id_quiz = q.id_quiz INNER JOIN account a 
                     ON qr.id_participant = a.id_account
-                    WHERE q.id_creator = (SELECT DISTINCT id_creator FROM quiz WHERE id_creator='$_SESSION[id_creator]' );");
+                    WHERE q.id_creator = (SELECT DISTINCT id_creator FROM quiz WHERE id_creator='$_SESSION[id_creator]' );";
+
+                    $res = mysqli_query($link, $sql);
                     // $res = mysqli_query($link, "SELECT * FROM v_QuizResults ORDER BY quiz_time desc");
                     $count = mysqli_num_rows($res);
 
