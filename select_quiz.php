@@ -90,7 +90,7 @@ include_once "connection.php";
 
         <div class="col-lg-6 col-lg-push-3" style="min-height: 500px; background-color: white;">
             <?php
-            $res = mysqli_query($link, "select * from quiz");
+            $res = mysqli_query($link, "SELECT * FROM quiz");
             while ($row = mysqli_fetch_array($res))
             {
                 ?>
@@ -107,15 +107,15 @@ include_once "connection.php";
 ?>
 
 <script type="text/javascript">
-    function set_exam_type_session(quiz)
+    function set_exam_type_session(quiz_name)
     {
         var xmlhttp=new XMLHttpRequest();
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                window.location = "dashboard.php";
+                window.location = "running_quiz.php";
             }
         };
-        xmlhttp.open("GET","forajax/set_exam_type_session.php?quiz="+ quiz,true);
+        xmlhttp.open("GET","forajax/set_exam_type_session.php?quiz="+ quiz_name,true);
         xmlhttp.send(null);
     }
 </script>
