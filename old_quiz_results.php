@@ -88,7 +88,14 @@ if (!isset($_SESSION["username"])) {
             </center>
             <?php
             $count = 0;
-            $res = mysqli_query($link, "select * from quiz_results where username='$_SESSION[username]' order by id_result desc");
+            $sql = "SELECT a.username, q.quiz_name, qr.total_question, qr.correct_answer, qr.wrong_answer, qr.quiz_time, qr.id_result FROM quiz_results qr INNER JOIN quiz q 
+            ON qr.id_quiz = q.id_quiz INNER JOIN account a 
+            ON qr.id_participant = a.id_account
+            WHERE username='$_SESSION[username]' ORDER BY id_result DESC;";
+
+            $res = mysqli_query($link, $sql);
+            
+            // $res = mysqli_query($link, "select * from quiz_results where username='$_SESSION[username]' order by id_result desc");
             $count = mysqli_num_rows($res);
 
             if ($count == 0) {
