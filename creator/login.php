@@ -80,7 +80,7 @@ if (isset($_POST["submit1"]))
     $password = mysqli_real_escape_string($link, $_POST["password"]);
     $role = "creator";
 
-    $res = mysqli_query($link, "SELECT * FROM account WHERE username='$username' AND password='$password' AND role='$role'");
+    $res = mysqli_query($link, "SELECT * FROM account WHERE username='$username' AND role='$role'");
 
     $count = mysqli_num_rows($res);
 
