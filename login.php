@@ -71,7 +71,7 @@ include_once "connection.php";
 
         $count = 0;
 
-        $res = mysqli_query($link, "SELECT * FROM account WHERE username='$username' AND password='$password'");
+        $res = mysqli_query($link, "SELECT * FROM account WHERE username='$username'");
 
         $count = mysqli_num_rows($res);
   
@@ -79,21 +79,29 @@ include_once "connection.php";
         if ($count > 0) {
 
             $data = mysqli_fetch_array($res);
+            
+            // validasi login dengan password verify
+                $hashed_password = $data["password"];
 
-            // cek jika user login sebagai participant
+                $verify_password = password_verify($password, $hashed_password);
+                if ($verify_password == true) {
+                    // buat session login dan username
+                    $_SESSION['username'] = $username;
+                    $_SESSION['role'] = "participant";
+                    
+                    // untuk mendapatkan id account yang sudah login
+                    $res = mysqli_query($link, "SELECT * FROM account WHERE role='participant' AND username='$_SESSION[username]'");
+                    $row = mysqli_fetch_array($res);
+                    $_SESSION['id_participant'] = $row['id_account'];
+
+                    // alihkan ke halaman participant
+                    header("location:select_quiz.php");
+                }
+            
+
             if ($data['role'] == "participant") {
                 
-                // buat session login dan username
-                $_SESSION['username'] = $username;
-                $_SESSION['role'] = "participant";
                 
-                // untuk mendapatkan id account yang sudah login
-                $res = mysqli_query($link, "SELECT * FROM account WHERE role='participant' AND username='$_SESSION[username]'");
-                $row = mysqli_fetch_array($res);
-                $_SESSION['id_participant'] = $row['id_account'];
-
-                // alihkan ke halaman participant
-                header("location:select_quiz.php");
             } else {
                 ?>
                 <script type="text/javascript">
