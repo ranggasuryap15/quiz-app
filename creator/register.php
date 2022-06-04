@@ -95,7 +95,8 @@ if (isset($_POST['register'])) {
         </script>
         <?php
     } else {
-        mysqli_query($link, "INSERT INTO account VALUES(NULL, '$username', '$password', '$role')");
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        mysqli_query($link, "INSERT INTO account VALUES(NULL, '$username', '$hashed_password', '$role')");
 
         ?>
 
