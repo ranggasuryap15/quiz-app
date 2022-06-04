@@ -100,7 +100,9 @@ include_once "connection.php";
             $password = $_POST['password'];
             $role = "participant";
 
-            mysqli_query($link, "INSERT INTO account VALUES(NULL, '$username', '$password', '$role')");
+            $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+            mysqli_query($link, "INSERT INTO account VALUES(NULL, '$username', '$password_hash', '$role')");
 
             ?>
 
