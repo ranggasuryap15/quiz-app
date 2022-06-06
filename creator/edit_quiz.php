@@ -12,7 +12,7 @@ if (!isset($_SESSION["creator"])) {
 }
 
 $id = $_GET["id"];
-$res = mysqli_query($link, "select * from quiz where id_quiz=$id");
+$res = mysqli_query($link, "SELECT * FROM quiz WHERE id_quiz=$id");
 while ($row = mysqli_fetch_array($res)) {
     $quiz = $row["quiz_name"];
     $exam_time = $row["quiz_timer"];
@@ -69,7 +69,7 @@ while ($row = mysqli_fetch_array($res)) {
 <?php
 if (isset($_POST["submit2"])) 
 {
-    mysqli_query($link, "update quiz set quiz_name='$_POST[examname]', quiz_timer='$_POST[examtime]' where id_quiz=$id") or die(mysqli_error($link));
+    mysqli_query($link, "UPDATE quiz SET quiz_name='$_POST[examname]', quiz_timer='$_POST[examtime]' where id_quiz=$id") or die(mysqli_error($link));
     
     ?>
     <script text="text/javascript">
