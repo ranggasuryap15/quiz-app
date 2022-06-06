@@ -17,7 +17,7 @@ $quiz = '';
 $res = mysqli_query($link, "SELECT * FROM quiz WHERE id_quiz=$id");
 
 while ($row = mysqli_fetch_array($res)) {
-    $quiz = $row["quiz_name"];
+    $quiz = $row["id_quiz"];
 }
 ?>
 <div class="breadcrumbs">
@@ -152,7 +152,7 @@ while ($row = mysqli_fetch_array($res)) {
             
             <?php
 
-            $res = mysqli_query($link, "SELECT * FROM questions WHERE quiz_name='$quiz' ORDER BY question_no asc");
+            $res = mysqli_query($link, "SELECT * FROM questions WHERE id_quiz='$quiz' ORDER BY question_no asc");
 
             while ($row = mysqli_fetch_array($res))
             {
@@ -254,7 +254,7 @@ if (isset($_POST["submit3"]))
     
     $loop = 0; // untuk looping
     $count = 0; 
-    $res = mysqli_query($link, "select * from questions where quiz_name='$quiz' order by id_question asc") or die(mysqli_error($link));
+    $res = mysqli_query($link, "SELECT * FROM questions WHERE id_quiz='$quiz' order by id_question asc") or die(mysqli_error($link));
 
     $count = mysqli_num_rows($res);
 
@@ -287,7 +287,7 @@ if (isset($_POST["submit4"]))
 {    
     $loop = 0; // untuk looping
     $count = 0; 
-    $res = mysqli_query($link, "select * from questions where quiz_name='$quiz' order by id_question asc") or die(mysqli_error($link));
+    $res = mysqli_query($link, "SELECT * FROM questions WHERE id_quiz='$quiz' order by id_question asc") or die(mysqli_error($link));
 
     $count = mysqli_num_rows($res);
 
@@ -297,7 +297,7 @@ if (isset($_POST["submit4"]))
         {
             $loop = $loop + 1;
             echo $loop;
-            mysqli_query($link, "update questions set question_no='$loop' where id_question=$row[id_question]");
+            mysqli_query($link, "UPDATE questions SET question_no='$loop' WHERE id_question=$row[id_question]");
         }
     }
 
