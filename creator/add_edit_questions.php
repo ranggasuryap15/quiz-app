@@ -14,7 +14,7 @@ if (!isset($_SESSION["creator"])) {
 $id = $_GET["id"];
 $id1 = $_GET["id1"]; // ini untuk id yang quiz
 $quiz = '';
-$res = mysqli_query($link, "select * from quiz where id_quiz=$id");
+$res = mysqli_query($link, "SELECT * FROM quiz WHERE id_quiz=$id");
 
 while ($row = mysqli_fetch_array($res)) {
     $quiz = $row["quiz_name"];

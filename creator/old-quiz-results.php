@@ -29,7 +29,6 @@ if (!isset($_SESSION["creator"])) {
                     WHERE q.id_creator = (SELECT DISTINCT id_creator FROM quiz WHERE id_creator='$_SESSION[id_creator]' );";
 
                     $res = mysqli_query($link, $sql);
-                    // $res = mysqli_query($link, "SELECT * FROM v_QuizResults ORDER BY quiz_time desc");
                     $count = mysqli_num_rows($res);
 
                     if ($count == 0) {

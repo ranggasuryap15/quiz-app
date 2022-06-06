@@ -3,6 +3,7 @@ session_start();
 include_once "header.php";
 include_once "../connection.php";
 
+// jika creator belum login, maka masuk ke index.php
 if (!isset($_SESSION["creator"])) {
     ?>
     <script type="text/javascript">
@@ -30,7 +31,7 @@ if (!isset($_SESSION["creator"])) {
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col">No</th>
                                     <th scope="col">Nama Ujian</th>
                                     <th scope="col">Waktu Ujian</th>
                                     <th scope="col">Tambahkan / Edit</th>
