@@ -19,7 +19,9 @@ if (isset($_SESSION["answer"][$que_no]))
     $ans = $_SESSION["answer"][$que_no];
 }
 
-$res = mysqli_query($link, "SELECT * FROM questions que INNER JOIN quiz q ON que.id_quiz = q.id_quiz WHERE quiz_name='$_SESSION[quiz]' && question_no=$_GET[question_no]");
+$sql = "SELECT que.id_question, que.question_no, que.question, que.option_1, que.option_2, que.option_3, que.option_4, que.answer, q.id_quiz, q.quiz_name, q.quiz_timer, q.id_creator FROM questions que INNER JOIN quiz q ON que.id_quiz = q.id_quiz WHERE quiz_name='$_SESSION[quiz]' && question_no=$_GET[question_no]";
+
+$res = mysqli_query($link, $sql);
 $count = mysqli_num_rows($res);
 
 if ($count == 0) {

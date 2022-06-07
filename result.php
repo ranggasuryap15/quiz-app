@@ -83,7 +83,7 @@ include_once "connection.php";
                 if(isset($_SESSION["answer"])){
                     for ($i = 1; $i <= sizeof($_SESSION["answer"]); $i++){
                         $answer="";
-                        $res = mysqli_query($link,"SELECT * FROM questions WHERE quiz_name='$_SESSION[quiz]' && question_no=$i");
+                        $res = mysqli_query($link,"SELECT que.id_question, que.question_no, que.question, que.option_1, que.option_2, que.option_3, que.option_4, que.answer, q.id_quiz, q.quiz_name, q.quiz_timer, q.id_creator FROM questions que INNER JOIN quiz q ON que.id_quiz = q.id_quiz WHERE quiz_name='$_SESSION[quiz]' && question_no=$i");
 
                         while($row=mysqli_fetch_array($res)){
                                 $answer = $row["answer"];
@@ -102,7 +102,9 @@ include_once "connection.php";
                 }
 
                 $total_question = 0;
-                $res = mysqli_query($link,"SELECT * FROM questions WHERE quiz_name='$_SESSION[quiz]'");
+                $sql = "SELECT que.id_question, que.question_no, que.question, que.option_1, que.option_2, que.option_3, que.option_4, que.answer, q.id_quiz, q.quiz_name, q.quiz_timer, q.id_creator FROM questions que INNER JOIN quiz q ON que.id_quiz = q.id_quiz WHERE quiz_name='$_SESSION[quiz]'";
+
+                $res = mysqli_query($link,$sql);
                 $total_question = mysqli_num_rows($res);
                 $wrong = $total_question - $correct;
                 echo "<br>"; echo "<br>";
