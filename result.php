@@ -74,6 +74,8 @@ include_once "connection.php";
     </div>
     <!-- Header -->
 
+
+    <!-- Untuk menampilkan seluruh pertanyaan yang telah terdaftar pada sebuah kuis tersebut -->
     <div class="row" style="margin: 0px; padding:0px; margin-bottom: 50px;">
         <div class="col-lg-6-push-3" style="min-height: 500px; background-color: white;">
             <?php
@@ -101,6 +103,8 @@ include_once "connection.php";
                     }
                 }
 
+
+                // untuk menampilkan hasil jawaban
                 $total_question = 0;
                 $sql = "SELECT que.id_question, que.question_no, que.question, que.option_1, que.option_2, que.option_3, que.option_4, que.answer, q.id_quiz, q.quiz_name, q.quiz_timer, q.id_creator FROM questions que INNER JOIN quiz q ON que.id_quiz = q.id_quiz WHERE quiz_name='$_SESSION[quiz]'";
 

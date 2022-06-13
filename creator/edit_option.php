@@ -102,7 +102,7 @@ while ($row = mysqli_fetch_array($res))
 <?php
 if (isset($_POST["submit1"]))
 {
-    mysqli_query($link, "update questions set question='$_POST[question]', option_1='$_POST[opt1]', option_2='$_POST[opt2]', option_3='$_POST[opt3]', option_4='$_POST[opt4]', answer='$_POST[answer_opt]' where id_question=$id");
+    mysqli_query($link, "UPDATE questions SET question='$_POST[question]', option_1='$_POST[opt1]', option_2='$_POST[opt2]', option_3='$_POST[opt3]', option_4='$_POST[opt4]', answer='$_POST[answer_opt]' WHERE id_question=$id");
 
     ?>
     <script type="text/javascript">

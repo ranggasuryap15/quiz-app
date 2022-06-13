@@ -252,9 +252,10 @@ if (isset($_POST["submit3"]))
     $opt4 = $_POST["opt4"];
     $answerOpt = $_POST["answer_opt"];
     
+    $id = 0; // untuk menambahkan id looping terus
     $loop = 0; // untuk looping
     $count = 0; 
-    $res = mysqli_query($link, "SELECT * FROM questions WHERE id_quiz='$quiz' order by id_question asc") or die(mysqli_error($link));
+    $res = mysqli_query($link, "SELECT * FROM questions WHERE id_quiz='$quiz' ORDER BY id_question asc") or die(mysqli_error($link));
 
     $count = mysqli_num_rows($res);
 
@@ -262,15 +263,19 @@ if (isset($_POST["submit3"]))
     {
         while ($row = mysqli_fetch_array($res)) 
         {
-            $loop = $loop + 1;
+            $loop = $loop + 1; // question_no menjadi terus bertambah
             echo $loop;
-            mysqli_query($link, "update questions set question_no='$loop' where id_question=$row[id_question]");
+            mysqli_query($link, "UPDATE questions SET question_no='$loop' WHERE id_question=$row[id_question]");
         }
     }
 
     $loop = $loop + 1;
-    mysqli_query($link, "insert into questions values (NULL,'$loop','$question','$opt1','$opt2','$opt3','$opt4','$answerOpt','$quiz')") or die(mysqli_error($link));
+    
+    // untuk memasukkan data ke dalam tabel question
+    mysqli_query($link, "INSERT INTO questions VALUES (NULL,'$loop','$question','$opt1','$opt2','$opt3','$opt4', '$answerOpt','$quiz')") or die(mysqli_error($link));
 
+    // untuk memasukkan data ke dalam tabel answer
+    // mysqli_query($link, "INSERT INTO answer VALUES(NULL, '$answerOpt')") or die(mysqli_error($link));
     ?>
     <script>
         alert("Pertanyaan berhasil ditambahkan");
@@ -341,7 +346,7 @@ if (isset($_POST["submit4"]))
     $file_destination_5 = "option_images/" . $tm . $file_name_5;
     move_uploaded_file($file_tmp, $dst5);
 
-    mysqli_query($link, "insert into questions values (NULL,'$loop','$_POST[img_question]','$file_destination_1','$file_destination_2','$file_destination_4','$file_destination_4','$file_destination_5','$quiz')") or die(mysqli_error($link));
+    mysqli_query($link, "INSERT INTO questions VALUES (NULL,'$loop','$_POST[img_question]','$file_destination_1','$file_destination_2','$file_destination_4','$file_destination_4','$file_destination_5','$quiz')") or die(mysqli_error($link));
 
     ?>
     <script>

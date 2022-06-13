@@ -87,6 +87,7 @@ include_once "connection.php";
         $res = mysqli_query($link, "SELECT * FROM account WHERE username='$username' AND role='participant'") or die(mysqli_error($link));
         $count = mysqli_num_rows($res);
 
+        // Untuk memberikan pesan error, bahwa username telah digunakan.
         if ($count > 0) {
             ?>
 
@@ -96,6 +97,7 @@ include_once "connection.php";
             </script>
             <?php
         } else {
+            // jika username tidak ada yang sama maka pendaftaran berhasil
             $username = $_POST['username'];
             $password = $_POST['password'];
             $role = "participant";

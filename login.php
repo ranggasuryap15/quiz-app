@@ -84,10 +84,12 @@ include_once "connection.php";
                 $hashed_password = $data["password"];
 
                 $verify_password = password_verify($password, $hashed_password);
+
+                // jika password benar, maka bisa login
                 if ($verify_password == true) {
                     // buat session login dan username
-                    $_SESSION['username'] = $username;
-                    $_SESSION['role'] = "participant";
+                    $_SESSION['username'] = $username; // ini adalah sesi participant yang aktif
+                    $_SESSION['role'] = "participant"; // 
                     
                     // untuk mendapatkan id account yang sudah login
                     $res = mysqli_query($link, "SELECT * FROM account WHERE role='participant' AND username='$_SESSION[username]'");
@@ -96,19 +98,20 @@ include_once "connection.php";
 
                     // alihkan ke halaman participant
                     header("location:select_quiz.php");
+                } else {
+                    // jika data akun tidak ditemukan, maka muncul pesan error
+                    ?>
+                    <script type="text/javascript">
+                        document.getElementById("failure").style.display = "block";
+                    </script>
+                    <?php
                 }
             
 
-            if ($data['role'] == "participant") {
+            // if ($data['role'] == "participant") {
                 
                 
-            } else {
-                ?>
-                <script type="text/javascript">
-                    document.getElementById("failure").style.display = "block";
-                </script>
-                <?php
-            }
+            // } 
         } else {
             ?>
             <script type="text/javascript">

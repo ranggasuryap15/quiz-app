@@ -22,6 +22,8 @@ if (!isset($_SESSION["creator"])) {
                         <h1>Semua Hasil Kuis</h1>
                     </center>
                     <?php
+
+                    // untuk menampilkan kuis yang sudah kita buat yang akan dikerjakan oleh participant
                     $count = 0;
                     $sql = "SELECT a.username, q.quiz_name, qr.total_question, qr.correct_answer, qr.wrong_answer, qr.quiz_time FROM quiz_results qr INNER JOIN quiz q 
                     ON qr.id_quiz = q.id_quiz INNER JOIN account a 
@@ -40,6 +42,7 @@ if (!isset($_SESSION["creator"])) {
                     } else {
                         echo "<table class='table table_bordered' style='margin-top: 10px;'>";
                         
+                        // menampilkan kuis yang telah dikerjakan oleh participant
                         echo "<tr style='background-color: #006DF0; color: white;'>";
                             echo "<th>"; echo "Username"; echo "</th>";
                             echo "<th>"; echo "Quiz Name"; echo "</th>";

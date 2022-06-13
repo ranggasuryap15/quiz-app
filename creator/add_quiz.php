@@ -16,7 +16,7 @@ if (!isset($_SESSION["creator"])) {
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Tambahkan Kategori Ujian</h1>
+                <h1>Tambahkan Kuis</h1>
             </div>
         </div>
     </div>
@@ -32,17 +32,17 @@ if (!isset($_SESSION["creator"])) {
                             <div class="col-lg-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <strong>Tambahkan Kategori Ujian</strong>
+                                        <strong>Tambahkan Kuis</strong>
                                     </div>
                                     <div class="card-body card-block">
                                         <div class="form-group">
-                                            <label for="examname" class=" form-control-label">Kategori Ujian Baru</label>
-                                            <input type="text" name="examname" placeholder="Tambahkan Kategori Baru" class="form-control">
+                                            <label for="examname" class=" form-control-label">Kuis Baru</label>
+                                            <input type="text" name="examname" placeholder="Tambahkan Kuis Baru" class="form-control">
                                         </div>
                                         
                                         <div class="form-group">
-                                            <label for="examtime" class=" form-control-label">Waktu Ujian</label>
-                                            <input type="text" name="examtime" placeholder="Waktu Ujian" class="form-control">
+                                            <label for="examtime" class=" form-control-label">Waktu Kuis</label>
+                                            <input type="text" name="examtime" placeholder="Waktu Kuis" class="form-control">
                                         </div>
                                         
                                         <div class="form-group">
@@ -55,15 +55,15 @@ if (!isset($_SESSION["creator"])) {
                             <div class="col-lg-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <strong class="card-title">Kategori Ujian</strong>
+                                        <strong class="card-title">Kuis Terdaftar</strong>
                                     </div>
                                     <div class="card-body">
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">#</th>
-                                                    <th scope="col">Nama Ujian</th>
-                                                    <th scope="col">Waktu Ujian</th>
+                                                    <th scope="col">Nama Kuis</th>
+                                                    <th scope="col">Waktu Kuis</th>
                                                     <th scope="col">Kelola</th>
                                                 </tr>
                                             </thead>

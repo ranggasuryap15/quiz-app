@@ -84,7 +84,7 @@ if (!isset($_SESSION["username"])) {
     <div class="row" style="margin: 0px; padding-top:20px; margin-bottom: 50px;">
         <div class="col-lg-6 col-lg-push-3" style="min-height: 500px; background-color: white;">
             <center>
-                <h1>Hasil Kuis Lama</h1>
+                <h1>Hasil Kuis</h1>
             </center>
             <?php
             $count = 0;

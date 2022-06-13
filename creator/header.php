@@ -40,7 +40,7 @@
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="add_quiz.php"> <i class="menu-icon fa fa-dashboard"></i>Tambah & Ubah Ujian</a>
+                            <a href="add_quiz.php"> <i class="menu-icon fa fa-dashboard"></i>Tambah & Ubah Kuis</a>
                         </li>
                         <li>
                             <a href="add_edit_quiz_questions.php"> <i class="menu-icon fa fa-dashboard"></i>Tambah Pertanyaan</a>
