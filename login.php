@@ -75,7 +75,6 @@ include_once "connection.php";
 
         $count = mysqli_num_rows($res);
   
-
         if ($count > 0) {
 
             $data = mysqli_fetch_array($res);

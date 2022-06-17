@@ -99,7 +99,7 @@ if (isset($_POST["submit1"]))
 
         if ($verify_password == true) {
             $_SESSION["creator"] = $username;
-            
+
             ?>
             <script type="text/javascript">
                 window.location="add_quiz.php";
